@@ -1,6 +1,6 @@
 # AirGradientHomeAssistant
 
-[![CI](../../actions/workflows/CI.yml/badge.svg)](../../actions/workflows/CI.yml)
+[![CI](https://github.com/agileek/AirGradientHomeAssistant/actions/workflows/CI.yaml/badge.svg)](https://github.com/agileek/AirGradientHomeAssistant/actions/workflows/CI.yaml)
 
 Publish AirGradient to Home Assistant through MQTT
 
