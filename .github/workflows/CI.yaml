@@ -30,7 +30,7 @@ jobs:
           arduino-cli lib install "home-assistant-integration"@1.3.0
       - name: Create config header
         run: |
-          cp ./DeviceConfig.example.hpp ./DeviceConfig.hpp
+          cp ./DeviceConfig.hpp.template ./DeviceConfig.hpp
       - name: Compile Sketch
         run: arduino-cli compile --fqbn esp8266:esp8266:d1_mini ./AirGradientHomeAssistant.ino
 
