@@ -196,7 +196,7 @@ void loop() {
 void showTextRectangle(String line1, String line2) {
 	display.clear();
 	display.setTextAlignment(TEXT_ALIGN_LEFT);
-	display.setFont(ArialMT_Plain_24);
+	display.setFont(ArialMT_Plain_16);
 	display.drawString(32, 16, line1);
 	display.drawString(32, 36, line2);
 	display.display();
