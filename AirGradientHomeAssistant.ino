@@ -21,12 +21,6 @@ The original example code was modified to add additional features.
 		the calibration value is subtracted from the reading
 */
 
-#include <functional>
-#include <optional>
-#include <sstream>
-#include <iterator>
-#include <map>
-
 #include <SSD1306Wire.h>
 #include <AirGradient.h>
 #include <Wire.h>
@@ -68,9 +62,6 @@ HASensor MQTT_humidity("Humidity");
 AirGradient ag = AirGradient();
 
 SSD1306Wire display(0x3c, SDA, SCL);
-
-template <typename... Args>
-std::string toStr(Args &&...args);
 
 void setup() {
 	Serial.begin(9600);
@@ -125,7 +116,7 @@ void setup() {
 	MQTT_PM2_5.setUnitOfMeasurement("µg/m3");
 	MQTT_PM2_5.setDeviceClass("pm25");
 	MQTT_PM2_5.setIcon("mdi:air-filter");
-  MQTT_PM2_5.setName(DEVICE_NAME " Particulate");
+	MQTT_PM2_5.setName(DEVICE_NAME " Particulate");
 	#endif
 
 	#if HAS_CO2
@@ -139,12 +130,12 @@ void setup() {
 	MQTT_temperature.setUnitOfMeasurement("°C");
 	MQTT_temperature.setDeviceClass("temperature");
 	MQTT_temperature.setIcon("mdi:thermometer");
-  MQTT_temperature.setName(DEVICE_NAME " Temperature");
+	MQTT_temperature.setName(DEVICE_NAME " Temperature");
 
 	MQTT_humidity.setUnitOfMeasurement("%");
 	MQTT_humidity.setDeviceClass("humidity");
 	MQTT_humidity.setIcon("mdi:water-percent");
-  MQTT_humidity.setName(DEVICE_NAME " Humidity");
+	MQTT_humidity.setName(DEVICE_NAME " Humidity");
 	#endif
 
 	if (MQTT_AUTHENTICATION) {
@@ -157,7 +148,7 @@ void setup() {
 }
 
 void loop() {
-	  #if HAS_PM2_5
+	#if HAS_PM2_5
         int PM2 = ag.getPM2_Raw();
         showTextRectangle("PM2",String(PM2));
         delay(DISPLAY_INTERVAL * 1000);
@@ -178,9 +169,8 @@ void loop() {
 
 #if ENABLE_MQTT
 	mqtt.loop();
-  Serial.println("sending to mqtt");
 
-  #if HAS_PM2_5
+	#if HAS_PM2_5
 	MQTT_PM2_5.setValue(PM2);
 	#endif
 	#if HAS_CO2
@@ -206,13 +196,3 @@ void showTextRectangle(const char *line1, const char *line2) {
 	showTextRectangle(String(line1), String(line2));
 }
 
-void showTextRectangle(std::string line1, std::string line2) {
-	showTextRectangle(String(line1.c_str()), String(line2.c_str()));
-}
-
-template <typename... Args>
-std::string toStr(Args &&...args) {
-	std::ostringstream ostr;
-	(ostr << std::dec << ... << args);
-	return ostr.str();
-}
