@@ -108,7 +108,7 @@ void setup() {
 	// Unique ID must be set
 	byte mac[WL_MAC_ADDR_LENGTH];
 	WiFi.macAddress(mac);
-  device.setUniqueId(mac, sizeof(mac));
+    device.setUniqueId(mac, sizeof(mac));
 
 	device.setName(DEVICE_NAME);
 
@@ -163,7 +163,7 @@ void loop() {
     #if HAS_SHT
         TMP_RH result = ag.periodicFetchData();
         float caliTemp = (result.t - TEMP_OFFSET);
-        showTextRectangle(String(result.t)+"°C",String(result.rh)+"%");
+        showTextRectangle(String(caliTemp)+"°C",String(result.rh)+"%");
         delay(DISPLAY_INTERVAL * 1000);
     #endif
 
@@ -195,4 +195,3 @@ void showTextRectangle(String line1, String line2) {
 void showTextRectangle(const char *line1, const char *line2) {
 	showTextRectangle(String(line1), String(line2));
 }
-
