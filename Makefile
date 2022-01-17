@@ -13,3 +13,6 @@ compile:
 
 upload: compile
 	arduino-cli upload --fqbn esp8266:esp8266:d1_mini ./AirGradientHomeAssistant.ino --port /dev/ttyUSB0
+
+monitor:
+	arduino-cli monitor --port /dev/ttyUSB0

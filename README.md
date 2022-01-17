@@ -33,22 +33,22 @@ Finally, upload it: `make upload` (you can only use make upload, as it automatic
 
 **Add ESP8266 platform information.**
 
-- Open the Arduino sketch file. Then open the Preferences menu, and add `http://arduino.esp8266.com/stable/package_esp8266com_index.json` to *Additional Board Manager URLs* [Image](./Images/Preferences.png)
-- Open the Board Manager and search for and install: `esp8266` by `ESP8266 comunity` [Image](./Images/BoardManager.png)
-- Load the board preferences by navigating to Tool -> Board: -> ESP8266 Boards, then select `LOLIN(WEMOS) D1 R2 & mini` [Image](./Images/BM-D1mini.png)
+- Open the Arduino sketch file. Then open the Preferences menu, and add `http://arduino.esp8266.com/stable/package_esp8266com_index.json` to *Additional Board Manager URLs*
+- Open the Board Manager and search for and install: `esp8266` by `ESP8266 comunity`
+- Load the board preferences by navigating to Tool -> Board: -> ESP8266 Boards, then select `LOLIN(WEMOS) D1 R2 & mini`
 
 **Add the required libraries.**
 
-- Open library manager, search for and install: `AirGradient Air Quality Sensor` [Image](./Images/LM-AirGradient.png)
+- Open library manager, search for and install: `AirGradient Air Quality Sensor`
 
 If only using sensors, with no connectivity skip to step two
 
-- Search for and install: `AirGradient Air Quality Sensor` by AirGradient [Image](./Images/LM-AirGradient.png)
-- Search for and install: `ESP8266 and ESP32 OLED driver for SSD1306 displays` by ThingPulse [Image](./Images/LM-OLED.png)
+- Search for and install: `AirGradient Air Quality Sensor` by AirGradient
+- Search for and install: `ESP8266 and ESP32 OLED driver for SSD1306 displays` by ThingPulse
 
 Only needed if you enable MQTT
 
-- Search for and install: `home-assistant-integration` by Dawid Chyrzynski [Image](./Images/LM-HA.png) You will be asked if you would like to install dependencies, select *Install all* [Image](./Images/LM-Dependencies.png)
+- Search for and install: `home-assistant-integration` by Dawid Chyrzynski You will be asked if you would like to install dependencies, select *Install all*
 
 ### Step 2 | Configuration
 
